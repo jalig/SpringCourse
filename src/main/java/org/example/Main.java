@@ -1,7 +1,11 @@
 package org.example;
 
-import org.example.introduction.Car;
-import org.example.introduction.Person;
+import org.example.person.Person;
+import org.example.service.Config;
+import org.example.service.Transport;
+import org.example.transport.Moto;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
@@ -9,36 +13,40 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        Car car = new Car();
-//        car.go();
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(Config.class);
+        Person person = context.getBean("newPerson", Person.class);
 
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
-
-        ClassPathXmlApplicationContext context2 =
-                new ClassPathXmlApplicationContext("applicationContext2.xml");
-
-
-        Car car1 = context.getBean("customCar", Car.class);
-        Car car2 = context.getBean("customCar", Car.class);
-
-        System.out.println(car1 == car2);
-
-        Car car3 = context2.getBean("customCar", Car.class);
-        Car car4 = context2.getBean("customCar", Car.class);
-
-        System.out.println(car3 == car4);
-
-//        car1.go();
-
-//        Person person = context.getBean("customPerson", Person.class);
-//        person.drive();
-
+        person.drive();
 
         context.close();
-        context2.close();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        ClassPathXmlApplicationContext context =
+//                new ClassPathXmlApplicationContext("applicationContext3.xml");
+//
+//        Transport transport1 = context.getBean("moto", Moto.class);
+//        Transport transport2 = context.getBean("moto", Moto.class);
+//
+//        System.out.println(transport1 == transport2);
+//
+//
+//        context.close();
     }
 
 }

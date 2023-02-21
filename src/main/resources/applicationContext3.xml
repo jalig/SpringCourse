@@ -7,16 +7,6 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="customCar"
-          class="org.example.transport.Car"
-          scope="prototype"
-          init-method="init"
-          destroy-method="destroy">
-    </bean>
-
-    <bean id="customPerson"
-          class="org.example.person.Person">
-        <constructor-arg ref="customCar"/>
-    </bean>
+    <context:component-scan base-package="org.example"/>
 
 </beans>
