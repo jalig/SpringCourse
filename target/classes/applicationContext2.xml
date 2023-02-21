@@ -9,7 +9,7 @@
 
     <bean id="customCar"
           class="org.example.transport.Car"
-          scope="singleton"
+          scope="prototype"
           init-method="init"
           destroy-method="destroy">
     </bean>
